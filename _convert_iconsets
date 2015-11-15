@@ -1,0 +1,15 @@
+#!/bin/sh
+
+for iconset in *.iconset; do
+
+  if [ "${iconset%.*}" != 'archive' ]; then
+
+    rm -f ${iconset%.*}.icns
+    cp "${iconset}/icon_256x256.png" "${iconset}/icon_128x128@2x.png"
+    cp "${iconset}/icon_512x512.png" "${iconset}/icon_256x256@2x.png"
+
+    iconutil --convert icns "${iconset}"
+
+  fi
+
+done
