@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for iconset in *.iconset; do
+for iconset in "${0%/*}"/*.iconset; do
 
   if [ "${iconset%.*}" != 'archive' ]; then
 
